@@ -80,18 +80,6 @@
       "languageVersion": "2.17"
     },
     {
-      "name": "flutter_web_plugins",
-      "rootUri": "file:///home/it400/snap/flutter/common/flutter/packages/flutter_web_plugins",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
-    },
-    {
-      "name": "js",
-      "rootUri": "file:///home/it400/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/js-0.6.4",
-      "packageUri": "lib/",
-      "languageVersion": "2.16"
-    },
-    {
       "name": "lints",
       "rootUri": "file:///home/it400/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/lints-1.0.1",
       "packageUri": "lib/",
@@ -138,12 +126,6 @@
       "rootUri": "file:///home/it400/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/petitparser-4.4.0",
       "packageUri": "lib/",
       "languageVersion": "2.14"
-    },
-    {
-      "name": "qr_code_scanner",
-      "rootUri": "file:///home/it400/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/qr_code_scanner-0.7.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
     },
     {
       "name": "sizer",
@@ -224,7 +206,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-05-27T15:29:58.258500Z",
+  "generated": "2022-05-27T16:08:12.304336Z",
   "generator": "pub",
   "generatorVersion": "2.17.1"
 }
