@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> _pages = <Widget>[
     HomePage(scroll: controller),
     Notifications(),
-    Insights(),
+    Insights(scroll: controller),
     QRViewExample()
   ];
 

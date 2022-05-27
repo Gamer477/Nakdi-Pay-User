@@ -1,13 +1,19 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:nakdi_pay_user/utils/app_colors.dart';
-import 'package:nakdi_pay_user/view/screens/insights/line_chart.dart';
 import 'package:pie_chart/pie_chart.dart';
 import 'package:sizer/sizer.dart';
 
+import 'package:nakdi_pay_user/utils/app_colors.dart';
+import 'package:nakdi_pay_user/view/screens/insights/line_chart.dart';
+
 class Insights extends StatefulWidget {
-  const Insights({Key? key}) : super(key: key);
+  ScrollController? scroll;
+
+  Insights({
+    Key? key,
+    required this.scroll,
+  }) : super(key: key);
 
   @override
   State<Insights> createState() => _InsightsState();
@@ -49,6 +55,7 @@ class _InsightsState extends State<Insights> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      controller: widget.scroll,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Container(
           color: Colors.indigoAccent[700],
