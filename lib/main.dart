@@ -11,14 +11,16 @@ class GlobalVariable {
 }
 
 Future<void> main() async {
-  await WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent, //or set color with: Color(0xFF0000FF)
   ));
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -41,17 +43,18 @@ class _MyAppState extends State<MyApp> {
               // navigatorObservers: [
               //   FirebaseAnalyticsObserver(analytics: analytics),
               // ],
-              routes: <String, WidgetBuilder>{
+              routes: const <String, WidgetBuilder>{
                 //"/Current_booking":(BuildContext context)=> new OfferPage(),
               },
               theme: ThemeData(
                 primaryColor: AppColors.primaryColor,
-                cursorColor: AppColors.primaryColor,
+                textSelectionTheme: const TextSelectionThemeData(
+                    cursorColor: AppColors.primaryColor),
               ),
               debugShowCheckedModeBanner: false,
               // themeMode:
               // theme.isLightTheme ? ThemeMode.light : ThemeMode.dark,
-              home: HomeScreen(),
+              home: const HomeScreen(),
             );
           },
         );

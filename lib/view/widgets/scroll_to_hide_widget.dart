@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -5,7 +7,7 @@ class ScrollToHideWidget extends StatefulWidget {
   final Widget child;
   final ScrollController controller;
   final Duration duration;
-  ScrollToHideWidget(
+  const ScrollToHideWidget(
       {required this.child,
       required this.controller,
       this.duration = const Duration(milliseconds: 450)});
@@ -25,22 +27,23 @@ class _ScrollToHideWidgetState extends State<ScrollToHideWidget> {
   }
 
   void show() {
-    if (!isVisible)
+    if (!isVisible) {
       setState(() {
         isVisible = true;
       });
+    }
   }
 
   void hide() {
-    if (isVisible)
+    if (isVisible) {
       setState(() {
         isVisible = false;
       });
+    }
   }
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     widget.controller.addListener(listen);
   }

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nakdi_pay_user/utils/app_images.dart';
-import 'package:nakdi_pay_user/view/widgets/appbar.dart';
-import 'package:sizer/sizer.dart';
+import 'package:nakdi_pay_user/view/screens/home/homepage.dart';
+import 'package:nakdi_pay_user/view/screens/insights/insights.dart';
+import 'package:nakdi_pay_user/view/screens/notification/notifcation.dart';
+import 'package:nakdi_pay_user/view/screens/scan/scan.dart';
 
 import '../../utils/app_colors.dart';
-import '../widgets/content.dart';
 import '../widgets/scroll_to_hide_widget.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -20,7 +21,6 @@ class _HomeScreenState extends State<HomeScreen> {
   ScrollController controller = ScrollController();
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     controller.dispose();
   }
@@ -34,42 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60),
-        child: CustomAppBar(),
-      ),
-      body: SingleChildScrollView(
-        controller: controller,
-        child: Container(
-          color: Color(0xffF0F0F0),
-          width: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 2.0.h,
-              ),
-              Center(
-                child: Container(
-                  width: 25.w,
-                  height: 1.5.h,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(60),
-                    color: AppColors.greyColor,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 2.0.h,
-              ),
-              Content(title: "People"),
-              Content(title: "People"),
-              Content(title: "People"),
-              Content(title: "People"),
-            ],
-          ),
-        ),
-      ),
+      body: Center(child: _pages.elementAt(_currentIndex)),
       bottomNavigationBar: ScrollToHideWidget(
         controller: controller,
         child: BottomNavigationBar(
@@ -81,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
           // selectedIconTheme:
           //     IconThemeData(color: AppColors.primaryColor, size: 26),
           unselectedIconTheme:
-              IconThemeData(color: AppColors.iconGreyColor, size: 20),
+              const IconThemeData(color: AppColors.iconGreyColor, size: 20),
           unselectedItemColor: AppColors.iconGreyColor,
           selectedItemColor: AppColors.primaryColor,
 
@@ -127,4 +92,11 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+  static const List<Widget> _pages = <Widget>[
+    HomePage(),
+    Notifications(),
+    Insights(),
+    Scan()
+  ];
 }

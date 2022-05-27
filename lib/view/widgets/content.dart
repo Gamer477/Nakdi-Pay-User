@@ -1,10 +1,16 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
-import 'package:nakdi_pay_user/utils/app_colors.dart';
 import 'package:sizer/sizer.dart';
+
+import 'package:nakdi_pay_user/utils/app_colors.dart';
 
 class Content extends StatefulWidget {
   String? title;
-  Content({this.title});
+  Content({
+    Key? key,
+    this.title,
+  }) : super(key: key);
 
   @override
   State<Content> createState() => _ContentState();
@@ -35,7 +41,7 @@ class _ContentState extends State<Content> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: EdgeInsets.only(left: 18, top: 15, bottom: 20),
+              padding: const EdgeInsets.only(left: 18, top: 15, bottom: 20),
               child: Text(
                 "${widget.title}",
                 style: TextStyle(
@@ -48,16 +54,16 @@ class _ContentState extends State<Content> {
             ),
             GridView.builder(
                 shrinkWrap: true,
-                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: 100,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 30,
                 ),
-                padding: EdgeInsets.only(left: 10, right: 4),
+                padding: const EdgeInsets.only(left: 10, right: 4),
                 itemCount: data.length,
                 itemBuilder: (BuildContext ctx, index) {
                   return Container(
-                    padding: EdgeInsets.only(left: 10, right: 10),
+                    padding: const EdgeInsets.only(left: 10, right: 10),
                     //alignment: Alignment.center,
                     child: Column(
                       children: [

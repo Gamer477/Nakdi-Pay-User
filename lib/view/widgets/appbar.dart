@@ -5,6 +5,8 @@ import 'package:nakdi_pay_user/utils/app_images.dart';
 import 'package:sizer/sizer.dart';
 
 class CustomAppBar extends StatefulWidget {
+  const CustomAppBar({Key? key}) : super(key: key);
+
   @override
   State<CustomAppBar> createState() => _CustomAppBarState();
 }
@@ -25,7 +27,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
       elevation: 0,
       leading: InkWell(
         onTap: () {
-          print("Profile Screen");
+          //  print("Profile Screen");
         },
         child: Image.asset(
           AppImages.profileImg,
@@ -33,7 +35,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
       ),
       title: Row(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 30,
             child: VerticalDivider(
               thickness: 2,
@@ -50,8 +52,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
           DropdownButton(
             dropdownColor: AppColors.primaryColor, focusColor: Colors.red,
             elevation: 0,
-            underline: SizedBox(),
-            hint: Container(
+            underline: const SizedBox(),
+            hint: SizedBox(
               width: 25.0.w,
               child: Text(
                 "Bank Account",
@@ -104,7 +106,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
             onChanged: (String? newValue) {
               setState(() {
                 //  isSelected = true;
-                print("New Val accountValue $newValue");
+                // print("New Val accountValue $newValue");
                 accountValue = newValue!;
               });
               //   isSelected = false;
@@ -114,7 +116,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
       ),
       titleSpacing: 0,
       flexibleSpace: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
               Color(0xff2B388F),
@@ -126,13 +128,13 @@ class _CustomAppBarState extends State<CustomAppBar> {
       actions: [
         IconButton(
           onPressed: () {
-            print("Search Page");
+            //    print("Search Page");
           },
           icon: SvgPicture.asset(AppImages.searchIcon),
         ),
         IconButton(
           onPressed: () {
-            print("Scan Page");
+            //   print("Scan Page");
           },
           icon: SvgPicture.asset(AppImages.scanIcon),
         ),
