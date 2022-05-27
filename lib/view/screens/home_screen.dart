@@ -4,10 +4,13 @@ import 'package:nakdi_pay_user/utils/app_images.dart';
 import 'package:nakdi_pay_user/view/screens/home/homepage.dart';
 import 'package:nakdi_pay_user/view/screens/insights/insights.dart';
 import 'package:nakdi_pay_user/view/screens/notification/notifcation.dart';
+import 'package:nakdi_pay_user/view/screens/scan/qr_screen.dart';
 import 'package:nakdi_pay_user/view/screens/scan/scan.dart';
 
 import '../../utils/app_colors.dart';
 import '../widgets/scroll_to_hide_widget.dart';
+
+ScrollController controller = ScrollController();
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -18,7 +21,14 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
-  ScrollController controller = ScrollController();
+
+  List<Widget> _pages = <Widget>[
+    HomePage(scroll: controller),
+    Notifications(),
+    Insights(),
+    QRViewExample()
+  ];
+
   @override
   void dispose() {
     super.dispose();
@@ -34,7 +44,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: _pages.elementAt(_currentIndex)),
+      body: Center(
+        child: _pages.elementAt(_currentIndex),
+      ),
       bottomNavigationBar: ScrollToHideWidget(
         controller: controller,
         child: BottomNavigationBar(
@@ -92,11 +104,4 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
-  static const List<Widget> _pages = <Widget>[
-    HomePage(),
-    Notifications(),
-    Insights(),
-    Scan()
-  ];
 }

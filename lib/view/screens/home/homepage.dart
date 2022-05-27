@@ -6,7 +6,11 @@ import '../../widgets/appbar.dart';
 import '../../widgets/content.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  ScrollController? scroll;
+  HomePage({
+    Key? key,
+    this.scroll,
+  }) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -39,6 +43,7 @@ class _HomePageState extends State<HomePage> {
         child: CustomAppBar(),
       ),
       body: SingleChildScrollView(
+        controller: widget.scroll,
         child: Container(
           color: const Color(0xffF0F0F0),
           width: double.infinity,
@@ -62,6 +67,10 @@ class _HomePageState extends State<HomePage> {
                 height: 2.0.h,
               ),
               Content(title: "People", data: datam),
+              Content(
+                title: "Bussines & Bills",
+                data: coffes,
+              ),
               Content(
                 title: "Bussines & Bills",
                 data: coffes,

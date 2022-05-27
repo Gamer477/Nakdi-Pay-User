@@ -33,6 +33,7 @@ dependencies:
     sdk: flutter
   flutter_svg: null
   pie_chart: ^5.3.1
+  qr_code_scanner: ^0.7.0
   sizer: ^2.0.15
 
 dev_dependencies:
