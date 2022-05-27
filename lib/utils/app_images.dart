@@ -15,4 +15,5 @@ class AppImages {
   static const activeNotificationsBottomIcon =
       "assets/images/active_notifications.svg";
   static const activeScanBottomIcon = "assets/images/active_scan.svg";
+  static const arrowDownIcon = "assets/images/arrow_down.png";
 }

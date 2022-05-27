@@ -1,6 +1,8 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:nakdi_pay_user/utils/app_images.dart';
 import 'package:sizer/sizer.dart';
 
 import 'package:nakdi_pay_user/utils/app_colors.dart';
@@ -30,7 +32,7 @@ class _ContentState extends State<Content> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 90.w,
-      height: 30.h,
+      height: 35.h,
       child: Card(
         color: AppColors.whiteColor,
         shape: RoundedRectangleBorder(
@@ -63,19 +65,27 @@ class _ContentState extends State<Content> {
                 itemCount: (data.length) + 1,
                 itemBuilder: (BuildContext ctx, index) {
                   if (index == data.length) {
-                    return Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(40.0),
-                          color: AppColors.greyColor.withOpacity(0.2)),
-                      child: const Icon(
-                        Icons.arrow_drop_down,
-                        size: 35,
-                        color: AppColors.darkgreyColor,
+                    return Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50.0),
+                          color: AppColors.greyColor.withOpacity(0.2),
+                        ),
+                        child: Image.asset(
+                          AppImages.arrowDownIcon,
+                          width: 20,
+                        ),
+                        //  Icon(
+                        //   Icons.arrow_drop_down,
+                        //   size: 35,
+                        //   color: AppColors.darkgreyColor,
+                        // ),
                       ),
                     );
                   }
                   return Container(
-                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    padding: const EdgeInsets.only(left: 8, right: 8),
                     //alignment: Alignment.center,
                     child: Column(
                       children: [
@@ -89,7 +99,7 @@ class _ContentState extends State<Content> {
                             fontFamily: 'Inter-Regular',
                             color: AppColors.blackColor,
                             fontSize: 10.sp,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
                       ],
