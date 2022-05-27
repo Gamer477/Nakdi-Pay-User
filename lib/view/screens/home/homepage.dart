@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Content(title: "People", data: datam),
               Content(
-                title: "People",
+                title: "Bussines & Bills",
                 data: coffes,
               ),
               // Content(title: "People"),
