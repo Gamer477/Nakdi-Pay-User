@@ -46,6 +46,10 @@ flutter_svg
 2.12
 file:///home/it400/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_svg-1.0.3/
 file:///home/it400/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_svg-1.0.3/lib/
+js
+2.16
+file:///home/it400/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/js-0.6.4/
+file:///home/it400/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/js-0.6.4/lib/
 lints
 2.12
 file:///home/it400/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/lints-1.0.1/
@@ -78,6 +82,10 @@ petitparser
 2.14
 file:///home/it400/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/petitparser-4.4.0/
 file:///home/it400/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/petitparser-4.4.0/lib/
+qr_code_scanner
+2.12
+file:///home/it400/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/qr_code_scanner-0.7.0/
+file:///home/it400/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/qr_code_scanner-0.7.0/lib/
 sizer
 2.12
 file:///home/it400/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/sizer-2.0.15/
@@ -134,4 +142,8 @@ flutter_test
 2.17
 file:///home/it400/snap/flutter/common/flutter/packages/flutter_test/
 file:///home/it400/snap/flutter/common/flutter/packages/flutter_test/lib/
+flutter_web_plugins
+2.17
+file:///home/it400/snap/flutter/common/flutter/packages/flutter_web_plugins/
+file:///home/it400/snap/flutter/common/flutter/packages/flutter_web_plugins/lib/
 2

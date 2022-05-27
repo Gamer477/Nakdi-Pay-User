@@ -4,6 +4,7 @@ import 'package:nakdi_pay_user/utils/app_images.dart';
 import 'package:nakdi_pay_user/view/screens/home/homepage.dart';
 import 'package:nakdi_pay_user/view/screens/insights/insights.dart';
 import 'package:nakdi_pay_user/view/screens/notification/notifcation.dart';
+import 'package:nakdi_pay_user/view/screens/scan/qr_screen.dart';
 import 'package:nakdi_pay_user/view/screens/scan/scan.dart';
 
 import '../../utils/app_colors.dart';
@@ -17,7 +18,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _currentIndex = 1;
+  int _currentIndex = 0;
   ScrollController controller = ScrollController();
   @override
   void dispose() {
@@ -97,6 +98,6 @@ class _HomeScreenState extends State<HomeScreen> {
     HomePage(),
     Notifications(),
     Insights(),
-    Scan()
+    QRViewExample()
   ];
 }
