@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
               Center(
                 child: Container(
                   width: 25.w,
-                  height: 1.5.h,
+                  height: 0.5.h,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(60),
                     color: AppColors.greyColor,

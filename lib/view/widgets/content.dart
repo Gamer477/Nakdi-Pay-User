@@ -60,8 +60,20 @@ class _ContentState extends State<Content> {
                   mainAxisSpacing: 30,
                 ),
                 padding: const EdgeInsets.only(left: 10, right: 4),
-                itemCount: data.length,
+                itemCount: (data.length) + 1,
                 itemBuilder: (BuildContext ctx, index) {
+                  if (index == data.length) {
+                    return Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(40.0),
+                          color: AppColors.greyColor.withOpacity(0.2)),
+                      child: const Icon(
+                        Icons.arrow_drop_down,
+                        size: 35,
+                        color: AppColors.darkgreyColor,
+                      ),
+                    );
+                  }
                   return Container(
                     padding: const EdgeInsets.only(left: 10, right: 10),
                     //alignment: Alignment.center,
