@@ -2,15 +2,17 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:nakdi_pay_user/utils/app_images.dart';
 import 'package:sizer/sizer.dart';
 
 import 'package:nakdi_pay_user/utils/app_colors.dart';
+import 'package:nakdi_pay_user/utils/app_images.dart';
 
 class Content extends StatefulWidget {
+  List<Map<String, String>> data;
   String? title;
   Content({
     Key? key,
+    required this.data,
     this.title,
   }) : super(key: key);
 
@@ -19,7 +21,7 @@ class Content extends StatefulWidget {
 }
 
 class _ContentState extends State<Content> {
-  List<Map<String, String>> data = [
+  List<Map<String, String>> datam = [
     {"name": 'Amr', "image": "assets/images/amr.png"},
     {"name": 'Maryam', "image": "assets/images/maryem.png"},
     {"name": 'Abdelrah', "image": "assets/images/abdelrah.png"},
@@ -62,9 +64,9 @@ class _ContentState extends State<Content> {
                   mainAxisSpacing: 30,
                 ),
                 padding: const EdgeInsets.only(left: 10, right: 4),
-                itemCount: (data.length) + 1,
+                itemCount: (widget.data.length) + 1,
                 itemBuilder: (BuildContext ctx, index) {
-                  if (index == data.length) {
+                  if (index == widget.data.length) {
                     return Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: Container(
@@ -89,12 +91,13 @@ class _ContentState extends State<Content> {
                     //alignment: Alignment.center,
                     child: Column(
                       children: [
-                        Expanded(child: Image.asset(data[index]["image"]!)),
+                        Expanded(
+                            child: Image.asset(widget.data[index]["image"]!)),
                         SizedBox(
                           height: 1.h,
                         ),
                         Text(
-                          data[index]["name"]!,
+                          widget.data[index]["name"]!,
                           style: TextStyle(
                             fontFamily: 'Inter-Regular',
                             color: AppColors.blackColor,

@@ -13,6 +13,24 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<Map<String, String>> datam = [
+    {"name": 'Amr', "image": "assets/images/amr.png"},
+    {"name": 'Maryam', "image": "assets/images/maryem.png"},
+    {"name": 'Abdelrah', "image": "assets/images/abdelrah.png"},
+    {"name": 'youssef', "image": "assets/images/youssef.png"},
+    {"name": 'Work', "image": "assets/images/work_image.png"},
+    {"name": 'Collage', "image": "assets/images/work_image.png"},
+    {"name": 'Fatma', "image": "assets/images/fatma.png"}
+  ];
+  List<Map<String, String>> coffes = [
+    {"name": 'Amr', "image": "assets/images/amr.png"},
+    {"name": 'Maryam', "image": "assets/images/maryem.png"},
+    {"name": 'Abdelrah', "image": "assets/images/abdelrah.png"},
+    {"name": 'youssef', "image": "assets/images/youssef.png"},
+    {"name": 'Work', "image": "assets/images/work_image.png"},
+    {"name": 'Collage', "image": "assets/images/work_image.png"},
+    {"name": 'Fatma', "image": "assets/images/fatma.png"}
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,10 +61,13 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 2.0.h,
               ),
-              Content(title: "People"),
-              Content(title: "People"),
-              Content(title: "People"),
-              Content(title: "People"),
+              Content(title: "People", data: datam),
+              Content(
+                title: "People",
+                data: coffes,
+              ),
+              // Content(title: "People"),
+              // Content(title: "People"),
 
               // ياايايايااي
             ],
