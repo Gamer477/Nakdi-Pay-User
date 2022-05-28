@@ -35,6 +35,15 @@ class _HomePageState extends State<HomePage> {
     {"name": 'Collage', "image": "assets/images/work_image.png"},
     {"name": 'Fatma', "image": "assets/images/fatma.png"}
   ];
+  List<Map<String, String>> bussinesAndBills = [
+    {"name": 'M C', "image": "assets/images/mac.png"},
+    {"name": 'S.Bucks', "image": "assets/images/s_bucks.png"},
+    {"name": 'Cola', "image": "assets/images/cola.png"},
+    {"name": 'Spotify', "image": "assets/images/spotify.png"},
+    {"name": 'Netflix', "image": "assets/images/netfilix.png"},
+    {"name": 'Nike', "image": "assets/images/nike.png"},
+    {"name": 'Amr', "image": "assets/images/amr_adidas.png"}
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,7 +82,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Content(
                 title: "Bussines & Bills",
-                data: coffes,
+                data: bussinesAndBills,
               ),
               // Content(title: "People"),
               // Content(title: "People"),
