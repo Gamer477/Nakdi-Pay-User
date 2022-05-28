@@ -305,6 +305,7 @@ class _InsightsState extends State<Insights> {
                 colorList: colorList,
                 initialAngleInDegree: 0,
                 centerText: active! ? "Spend" : "Have",
+
                 chartType: ChartType.ring,
                 ringStrokeWidth: 15,
                 legendOptions: LegendOptions(
@@ -316,8 +317,13 @@ class _InsightsState extends State<Insights> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                centerTextStyle: TextStyle(
+                  fontFamily: "Inter-Regular",
+                  fontWeight: FontWeight.normal,
+                  color: Color(0xff727272),
+                ),
                 chartValuesOptions: ChartValuesOptions(
-                  showChartValueBackground: true,
+                  showChartValueBackground: false,
                   showChartValues: true,
                   showChartValuesInPercentage: true,
                   showChartValuesOutside: true,
@@ -377,10 +383,12 @@ class _InsightsState extends State<Insights> {
                         const SizedBox(
                           height: 5,
                         ),
-                        const Text(
+                        Text(
                           "03:12  May 18  CIB account",
                           style: TextStyle(
-                              fontSize: 10, color: AppColors.greyColor),
+                              fontFamily: "Inter-Regular",
+                              fontSize: 10.sp,
+                              color: Colors.grey[600]),
                         ),
                       ],
                     )),

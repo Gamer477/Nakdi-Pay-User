@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nakdi_pay_user/utils/app_images.dart';
 import 'package:sizer/sizer.dart';
-
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '../../../utils/app_colors.dart';
 import '../../widgets/appbar.dart';
 import '../../widgets/content.dart';
@@ -19,6 +19,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  RefreshController _refreshController =
+      RefreshController(initialRefresh: false);
   List<Map<String, String>> datam = [
     {"name": 'Amr', "image": "assets/images/amr.png"},
     {"name": 'Maryam', "image": "assets/images/maryem.png"},
@@ -42,6 +44,20 @@ class _HomePageState extends State<HomePage> {
     {"name": 'Rewards', "image": "assets/images/rewards2.png"},
     {"name": 'Refferals', "image": "assets/images/refferals.png"},
   ];
+  void _onRefresh() async {
+    // monitor network fetch
+    await Future.delayed(Duration(milliseconds: 1000));
+    // if failed,use refreshFailed()
+    _refreshController.refreshCompleted();
+  }
+
+  void _onLoading() async {
+    // monitor network fetch
+    await Future.delayed(Duration(milliseconds: 1000));
+    // if failed,use loadFailed(),if no data return,use LoadNodata()
+    if (mounted) setState(() {});
+    _refreshController.loadComplete();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +94,10 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(
                         height: 2.0.h,
                       ),
-                      Content(title: "People", data: datam),
+                      Content(
+                        title: "People",
+                        data: datam,
+                      ),
                       Content(
                         title: "Bussines & Bills",
                         data: bussinesAndBills,
@@ -89,7 +108,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       SizedBox(
                         width: 90.w,
-                        height: 16.h,
+                        height: 14.h,
                         child: Card(
                           color: AppColors.whiteColor,
                           shape: RoundedRectangleBorder(

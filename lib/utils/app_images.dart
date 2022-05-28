@@ -18,4 +18,8 @@ class AppImages {
   static const arrowDownIcon = "assets/images/arrow_down.png";
   static const clockIcon = "assets/images/clock.svg";
   static const bankIcon = "assets/images/bank.svg";
+  static const closeIcon = "assets/images/close.svg";
+  static const flashIcon = "assets/images/flashoff.svg";
+  static const qrIcon = "assets/images/scan_qr.svg";
+  static const settingsIcon = "assets/images/settings.svg";
 }
