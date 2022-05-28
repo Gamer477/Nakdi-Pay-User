@@ -34,7 +34,7 @@ class _ContentState extends State<Content> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 90.w,
-      height: 35.h,
+      height: widget.data.length == 3 ? 21.h : 35.h,
       child: Card(
         color: AppColors.whiteColor,
         shape: RoundedRectangleBorder(
@@ -67,24 +67,26 @@ class _ContentState extends State<Content> {
                 itemCount: (widget.data.length) + 1,
                 itemBuilder: (BuildContext ctx, index) {
                   if (index == widget.data.length) {
-                    return Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50.0),
-                          color: AppColors.greyColor.withOpacity(0.2),
-                        ),
-                        child: Image.asset(
-                          AppImages.arrowDownIcon,
-                          width: 20,
-                        ),
-                        //  Icon(
-                        //   Icons.arrow_drop_down,
-                        //   size: 35,
-                        //   color: AppColors.darkgreyColor,
-                        // ),
-                      ),
-                    );
+                    return widget.data.length == 3
+                        ? SizedBox()
+                        : Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50.0),
+                                color: AppColors.greyColor.withOpacity(0.2),
+                              ),
+                              child: Image.asset(
+                                AppImages.arrowDownIcon,
+                                width: 20,
+                              ),
+                              //  Icon(
+                              //   Icons.arrow_drop_down,
+                              //   size: 35,
+                              //   color: AppColors.darkgreyColor,
+                              // ),
+                            ),
+                          );
                   }
                   return Container(
                     padding: const EdgeInsets.only(left: 8, right: 8),

@@ -16,4 +16,6 @@ class AppImages {
       "assets/images/active_notifications.svg";
   static const activeScanBottomIcon = "assets/images/active_scan.svg";
   static const arrowDownIcon = "assets/images/arrow_down.png";
+  static const clockIcon = "assets/images/clock.svg";
+  static const bankIcon = "assets/images/bank.svg";
 }

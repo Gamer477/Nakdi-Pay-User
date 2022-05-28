@@ -23,6 +23,7 @@ class _InsightsState extends State<Insights> {
   List<String> accounts = ["cib account", "cib account", "cib account"];
   String _selection = "3 Account";
   bool? active;
+  bool? details;
   Map<String, double> dataMap = {
     "EGP 600 CIB Account": 3,
     "EGP 750 CIB Account": 2,
@@ -49,16 +50,21 @@ class _InsightsState extends State<Insights> {
   @override
   void initState() {
     active = false;
+    details = false;
     super.initState();
   }
 
+  List<Color> gradientColors = [
+    const Color(0xff23b6e6),
+    const Color(0xff02d39a),
+  ];
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       controller: widget.scroll,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Container(
-          color: Colors.indigoAccent[700],
+          color: Color(0xff2B388F),
           width: double.infinity,
           height: MediaQuery.of(context).size.height * 0.36,
           child: Column(
@@ -216,41 +222,122 @@ class _InsightsState extends State<Insights> {
           ),
         ),
         const SizedBox(
-          height: 30.0,
+          height: 2.0,
         ),
-        PieChart(
-          dataMap: dataMap,
-          animationDuration: Duration(milliseconds: 800),
-          chartLegendSpacing: 10.w,
-          chartRadius: MediaQuery.of(context).size.width / 3.2,
-          colorList: colorList,
-          initialAngleInDegree: 0,
-          centerText: "Have",
-          chartType: ChartType.ring,
-          ringStrokeWidth: 15,
-          legendOptions: LegendOptions(
-            showLegendsInRow: false,
-            legendPosition: LegendPosition.right,
-            showLegends: true,
-            // legendShape: _BoxShape.circle,
-            legendTextStyle: TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          chartValuesOptions: ChartValuesOptions(
-            showChartValueBackground: true,
-            showChartValues: true,
-            showChartValuesInPercentage: true,
-            showChartValuesOutside: true,
-            decimalPlaces: 1,
-          ),
-          // gradientList: ---To add gradient colors---
-          // emptyColorGradient: ---Empty Color gradient---
+        Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: details!
+              ? InkWell(
+                  onTap: (() {
+                    setState(() {
+                      details = !details!;
+                    });
+                  }),
+                  child: Container(
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      "back ->",
+                      style: TextStyle(
+                          fontFamily: "Inter-Regular",
+                          fontSize: 10.sp,
+                          color: AppColors.primaryColor),
+                    ),
+                  ),
+                )
+              : Row(
+                  children: [
+                    Container(
+                      width: 10,
+                      height: 10,
+                      decoration: BoxDecoration(
+                          color:
+                              active! ? AppColors.blueColor : Color(0xff30B078),
+                          borderRadius: BorderRadius.circular(50.0)),
+                    ),
+                    const SizedBox(
+                      width: 10.0,
+                    ),
+                    Text(
+                      active! ? "Spend" : "Income",
+                      style: TextStyle(
+                        fontFamily: "Inter-Regular",
+                        fontSize: 10.sp,
+                        color:
+                            active! ? AppColors.blueColor : Color(0xff30B078),
+                      ),
+                    ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.60,
+                    ),
+                    InkWell(
+                      onTap: (() {
+                        setState(() {
+                          details = !details!;
+                        });
+                      }),
+                      child: Container(
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                            border: Border.all(color: AppColors.blueColor),
+                            borderRadius: BorderRadius.circular(10.0)),
+                        child: Text(
+                          "Details",
+                          style: TextStyle(
+                              fontFamily: "Inter-Regular",
+                              fontSize: 10.sp,
+                              color: AppColors.primaryColor),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
         ),
+        const SizedBox(
+          height: 10.0,
+        ),
+        details!
+            ? Container()
+            : PieChart(
+                dataMap: dataMap,
+                animationDuration: Duration(milliseconds: 800),
+                chartLegendSpacing: 10.w,
+                chartRadius: MediaQuery.of(context).size.width / 3.2,
+                colorList: colorList,
+                initialAngleInDegree: 0,
+                centerText: active! ? "Spend" : "Have",
+                chartType: ChartType.ring,
+                ringStrokeWidth: 15,
+                legendOptions: LegendOptions(
+                  showLegendsInRow: false,
+                  legendPosition: LegendPosition.right,
+                  showLegends: true,
+                  // legendShape: _BoxShape.circle,
+                  legendTextStyle: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                chartValuesOptions: ChartValuesOptions(
+                  showChartValueBackground: true,
+                  showChartValues: true,
+                  showChartValuesInPercentage: true,
+                  showChartValuesOutside: true,
+                  decimalPlaces: 1,
+                ),
+                // gradientList: ---To add gradient colors---
+                // emptyColorGradient: ---Empty Color gradient---
+              ),
         const SizedBox(
           height: 15.0,
         ),
-        LineChartSample2(),
+        details!
+            ? Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: LineChartSample2(
+                  lineColor1: gradientColors[0],
+                  lineColor2: gradientColors[1],
+                ),
+              )
+            : Container(),
         const SizedBox(
           height: 15.0,
         ),
