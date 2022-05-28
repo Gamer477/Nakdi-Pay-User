@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nakdi_pay_user/utils/app_images.dart';
+import 'package:nakdi_pay_user/view/screens/scan/qr_screen.dart';
 import 'package:sizer/sizer.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '../../../utils/app_colors.dart';
@@ -59,6 +60,8 @@ class _HomePageState extends State<HomePage> {
     _refreshController.loadComplete();
   }
 
+  double heigttest = 2.h;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,9 +97,24 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(
                         height: 2.0.h,
                       ),
-                      Content(
-                        title: "People",
-                        data: datam,
+                      GestureDetector(
+                        onVerticalDragDown: (details) {
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //     builder: (_) => QRViewExample(),
+                          //   ),
+                          // );
+                          // for (int i = 0; i < 50; i++) {
+                          //   setState(() {
+                          //     heigttest += 10;
+                          //   });
+                          // }
+                        },
+                        child: Content(
+                          title: "People",
+                          data: datam,
+                        ),
                       ),
                       Content(
                         title: "Bussines & Bills",
@@ -156,9 +174,9 @@ class _HomePageState extends State<HomePage> {
           ),
           Positioned(
             bottom: 1.h,
-            left: 33.w,
+            left: 35.w,
             child: Container(
-              width: 35.w,
+              width: 34.w,
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 gradient: const LinearGradient(

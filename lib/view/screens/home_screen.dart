@@ -63,45 +63,29 @@ class _HomeScreenState extends State<HomeScreen> {
           selectedItemColor: AppColors.primaryColor,
 
           items: [
-            BottomNavigationBarItem(
-              activeIcon: SvgPicture.asset(
-                AppImages.activeHomeBottomIcon,
-              ),
-              icon: SvgPicture.asset(
-                AppImages.homeBottomIcon,
-              ),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              activeIcon: SvgPicture.asset(
-                AppImages.activeNotificationsBottomIcon,
-              ),
-              icon: SvgPicture.asset(
-                AppImages.notificationsBottomIcon,
-              ),
-              label: 'Notifications',
-            ),
-            BottomNavigationBarItem(
-              activeIcon: SvgPicture.asset(
-                AppImages.activeInsightsBottomIcon,
-              ),
-              icon: SvgPicture.asset(
-                AppImages.insightsBottomIcon,
-              ),
-              label: 'Insights',
-            ),
-            BottomNavigationBarItem(
-              activeIcon: SvgPicture.asset(
-                AppImages.activeScanBottomIcon,
-              ),
-              icon: SvgPicture.asset(
-                AppImages.scanBottomIcon,
-              ),
-              label: 'Scan',
-            ),
+            showBottomNavBar(AppImages.activeHomeBottomIcon,
+                AppImages.homeBottomIcon, 'Home'),
+            showBottomNavBar(AppImages.activeNotificationsBottomIcon,
+                AppImages.notificationsBottomIcon, 'Notifications'),
+            showBottomNavBar(AppImages.activeInsightsBottomIcon,
+                AppImages.insightsBottomIcon, 'Insights'),
+            showBottomNavBar(AppImages.activeScanBottomIcon,
+                AppImages.scanBottomIcon, 'Scan'),
           ],
         ),
       ),
+    );
+  }
+
+  showBottomNavBar(String activeIcon, String unActiveIcon, String labelText) {
+    return BottomNavigationBarItem(
+      activeIcon: SvgPicture.asset(
+        activeIcon,
+      ),
+      icon: SvgPicture.asset(
+        unActiveIcon,
+      ),
+      label: labelText,
     );
   }
 }

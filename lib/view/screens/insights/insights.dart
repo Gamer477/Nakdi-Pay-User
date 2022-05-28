@@ -347,6 +347,63 @@ class _InsightsState extends State<Insights> {
         const SizedBox(
           height: 15.0,
         ),
+        Padding(
+          padding: const EdgeInsets.only(left: 18.0),
+          child: Row(
+            children: [
+              Container(
+                width: 20.w,
+                height: 3.h,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.grey[300],
+                ),
+                child: Center(
+                  child: Text(
+                    "This Month",
+                    style: TextStyle(
+                      fontFamily: "Inter-Regular",
+                      color: Color(0xff00A8E8),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 25.0),
+                child: Text(
+                  "Last 3 Months",
+                  style: TextStyle(
+                    fontFamily: "Inter-Regular",
+                    color: AppColors.blackColor,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 25.0),
+                child: Text(
+                  "This Year",
+                  style: TextStyle(
+                    fontFamily: "Inter-Regular",
+                    color: AppColors.blackColor,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 25.0),
+                child: Text(
+                  "Select Date",
+                  style: TextStyle(
+                    fontFamily: "Inter-Regular",
+                    color: AppColors.blackColor,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 15.0,
+        ),
         const Padding(
           padding: EdgeInsets.only(left: 15.0),
           child: Text(
